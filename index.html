@@ -388,20 +388,85 @@
     .r.in{opacity:1;transform:translateY(0)}
     .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.34s}
 
+    /* ── MOBILE NAV ── */
+    .nav-burger{
+      display:none;flex-direction:column;justify-content:center;gap:5px;
+      width:38px;height:38px;background:none;border:1px solid var(--bdr);
+      border-radius:10px;cursor:pointer;padding:10px 9px;
+      transition:border-color .2s,background .2s;flex-shrink:0;
+    }
+    .nav-burger:hover{border-color:var(--bdr-hi);background:rgba(37,99,235,.04)}
+    .nav-burger span{display:block;width:100%;height:1.5px;background:var(--txt);border-radius:2px;transition:transform .3s,opacity .3s}
+    .nav-burger.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}
+    .nav-burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+    .nav-burger.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+
+    .nav-mob{
+      display:none;position:fixed;inset:0;z-index:190;
+      background:rgba(255,255,255,.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+      flex-direction:column;align-items:center;justify-content:center;
+      padding:80px 32px 48px;
+    }
+    .nav-mob.open{display:flex}
+    .mob-link{
+      font-family:'Manrope',sans-serif;font-size:28px;font-weight:800;letter-spacing:-.03em;
+      color:var(--txt);text-decoration:none;padding:18px 0;width:100%;text-align:center;
+      border-bottom:1px solid var(--bdr);transition:color .2s;
+    }
+    .mob-link:first-child{border-top:1px solid var(--bdr)}
+    .mob-link:active{color:var(--blue)}
+    .mob-cta{
+      border:none;margin-top:28px;
+      background:var(--grad);color:#fff !important;
+      border-radius:100px;padding:16px 48px;
+      box-shadow:0 4px 14px rgba(29,78,216,.3);font-size:15px;width:auto;
+    }
+    .mob-cta:active{opacity:.88}
+
     /* ── RESPONSIVE ── */
     @media(max-width:880px){
-      nav{padding:16px 20px}
+      nav{padding:14px 20px}
       .nav-pill{display:none}
-      section{padding:80px 20px}
-      .hero{padding:110px 20px 60px}
+      .nav-r .nav-btn{display:none}
+      .nav-burger{display:flex}
+      section{padding:80px 24px}
+      .hero{padding:100px 20px 60px}
+      .cta-dark{padding:100px 24px}
+      h1{font-size:clamp(32px,9.5vw,60px)}
+      .cta-dark h2{font-size:clamp(32px,9.5vw,60px)}
       .svc-hd,.proc-hd,.why-grid{grid-template-columns:1fr;gap:24px}
-      .bento{grid-template-columns:1fr}
+      .bento{grid-template-columns:1fr;gap:12px}
       .ba,.bb,.bc_,.bd{grid-column:span 1}
+      .bc{padding:28px}
       .proc-grid{grid-template-columns:1fr 1fr}
+      .ps{padding:28px 22px}
       .stats{grid-template-columns:1fr 1fr}
       .stat{border-right:none;border-bottom:1px solid var(--bdr);padding:32px 0}
+      .stat:nth-child(odd){border-right:1px solid var(--bdr)}
+      .stat:nth-last-child(-n+2){border-bottom:none}
       .why-l{position:static}
-      .foot{flex-direction:column;gap:20px;text-align:center}
+      .hints{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+      .hints::-webkit-scrollbar{display:none}
+      .hint{flex-shrink:0}
+      .chat-in{font-size:16px}
+      .chat-send{width:44px;height:44px}
+      .foot{flex-direction:column;gap:16px;text-align:center}
+      .foot-links{justify-content:center}
+    }
+
+    @media(max-width:580px){
+      nav{padding:12px 16px}
+      section{padding:60px 16px}
+      .hero{padding:88px 16px 48px}
+      .hero-sub{margin-bottom:28px}
+      .cta-dark{padding:72px 20px}
+      .bc{padding:22px}
+      .proc-grid{grid-template-columns:1fr}
+      .svc-hd{margin-bottom:36px}
+      .proc-hd{margin-bottom:40px}
+      .cta-btns{flex-direction:column;align-items:stretch;max-width:280px;margin:0 auto}
+      .btn-white,.btn-ghost-w{text-align:center;justify-content:center}
+      footer{padding:28px 16px}
     }
   </style>
 </head>
@@ -417,8 +482,17 @@
   </div>
   <div class="nav-r">
     <a href="#contact" class="nav-btn">Get Started →</a>
+    <button class="nav-burger" id="navBurger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+<div class="nav-mob" id="navMob">
+  <a href="#services" class="mob-link">Services</a>
+  <a href="#process" class="mob-link">Process</a>
+  <a href="#why" class="mob-link">About</a>
+  <a href="#contact" class="mob-link mob-cta">Get Started →</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -742,6 +816,17 @@ async function sendChat(){
 document.getElementById('chatIn').addEventListener('keydown',e=>{
   if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendChat();}
 });
+
+/* ── Mobile nav ── */
+const burger=document.getElementById('navBurger');
+const mobNav=document.getElementById('navMob');
+function toggleMob(open){
+  burger.classList.toggle('open',open);
+  mobNav.classList.toggle('open',open);
+  document.body.style.overflow=open?'hidden':'';
+}
+burger.addEventListener('click',()=>toggleMob(!mobNav.classList.contains('open')));
+document.querySelectorAll('.mob-link').forEach(a=>a.addEventListener('click',()=>toggleMob(false)));
 </script>
 </body>
 </html>
