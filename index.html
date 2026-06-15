@@ -519,11 +519,11 @@
         </div>
       </div>
       <div class="hints" id="chatHints">
-        <span class="hint" data-q="We're drowning in customer support emails and can't keep up">📧 Drowning in emails</span>
-        <span class="hint" data-q="We spend hours every week building manual reports from spreadsheets">📊 Manual reporting</span>
         <span class="hint" data-q="Our sales team struggles to follow up with leads consistently">📞 Sales follow-ups</span>
         <span class="hint" data-q="Invoice and billing processing takes too much manual work">🧾 Invoice processing</span>
-        <span class="hint" data-q="Hiring is slow and we lose candidates to faster competitors">👥 Slow hiring</span>
+        <span class="hint" data-q="Writing custom quotes and proposals takes hours every time">📋 Quotes &amp; proposals</span>
+        <span class="hint" data-q="Our scheduling and appointment booking is constant back and forth">📅 Scheduling chaos</span>
+        <span class="hint" data-q="We waste too much time on repetitive admin tasks and manual data entry">🔄 Repetitive admin</span>
       </div>
     </div>
   </div>
@@ -686,25 +686,33 @@ document.querySelectorAll('.hint').forEach(h=>h.addEventListener('click',()=>{
 
 /* ── Chat ── */
 const RESP=[
+  {kw:['quote','proposal','estimate','bid','pricing','scope of work','client proposal','write a quote'],
+   title:'Quote & Proposal Automation',
+   body:`For most small businesses, writing custom quotes and proposals is a multi-hour task that repeats constantly. We'd build an AI workflow that takes your service options, client details, and pricing logic and generates accurate, professional proposals in minutes — so your team spends time winning work, not writing about it.`,
+   tags:['Custom AI Development','Process Audit']},
+  {kw:['repetitive','admin','manual task','administrative','copy and paste','data entry','copy paste','wasting time'],
+   title:'Admin Task Automation',
+   body:`Repetitive admin is one of the highest-ROI targets for small teams. We'd map your most time-consuming manual workflows — data entry, file routing, status updates, copy-paste work between systems — and build automations that handle them without anyone touching a keyboard. Most clients reclaim 5–10 hours per week within the first month.`,
+   tags:['Process Audit','Custom AI Development']},
   {kw:['email','inbox','support ticket','helpdesk','overwhelmed with message'],
    title:'Email & Support Triage',
-   body:`That's a high-ROI automation target. We'd build an AI triage layer that reads incoming emails, classifies intent and urgency, routes messages to the right queue, and drafts suggested replies for one-click approval. Most clients cut average response time by 60–80% within the first 30 days.`,
+   body:`For a small team, an overflowing inbox can stall everything. We'd build an AI triage layer that reads incoming emails, classifies intent and urgency, routes messages to the right person, and drafts suggested replies for one-click approval — so nothing falls through the cracks even on your busiest days.`,
    tags:['Custom AI Development','Strategy Session']},
-  {kw:['report','reporting','spreadsheet','manual data','data entry','dashboard','copy paste'],
+  {kw:['report','reporting','spreadsheet','manual data','dashboard'],
    title:'Reporting & Data Automation',
-   body:`Manual reporting is one of the easiest wins. We'd build a pipeline that pulls from your existing sources — spreadsheets, CRM, QuickBooks, etc. — and generates accurate reports automatically on any cadence you need. No more Friday afternoon dashboard sessions eating up your time.`,
+   body:`Manual reporting pulls your team away from the work that actually grows the business. We'd build a pipeline that pulls from your existing sources — spreadsheets, CRM, QuickBooks — and generates accurate reports automatically on whatever cadence you need. No more end-of-week dashboard sessions.`,
    tags:['Custom AI Development','Process Audit']},
   {kw:['sales','follow-up','follow up','crm','lead','pipeline','prospect','close'],
-   title:'Sales & Pipeline Automation',
-   body:`There's real leverage in automating customer touchpoints. We'd analyze your sales workflow and build AI tools to handle follow-up sequences, lead scoring, meeting scheduling, and CRM updates — so your team spends more time closing and less time on admin.`,
+   title:'Sales Follow-Up Automation',
+   body:`Small sales teams win or lose on consistency. We'd analyze your sales workflow and build AI tools to handle follow-up sequences, lead scoring, and CRM updates automatically — so your team is always in front of the right prospects at the right time, without the manual tracking overhead.`,
    tags:['AI Strategy','Custom AI Development']},
   {kw:['invoice','billing','accounts payable','receipt','bookkeeping','accounting','payment'],
-   title:'Financial Document Processing',
-   body:`Invoice and receipt processing is a perfect fit for AI. We'd build a system that reads incoming documents, extracts key fields, validates against your records, and routes exceptions for human review — dramatically cutting manual entry and processing errors.`,
+   title:'Invoice & Billing Automation',
+   body:`Invoice processing is error-prone and time-consuming when done manually — and for SMBs, those errors hit cash flow directly. We'd build a system that reads incoming invoices, extracts key fields, validates against your records, and routes exceptions for human review, cutting processing time by 70–90%.`,
    tags:['Custom AI Development','Process Audit']},
   {kw:['hiring','recruit','hr','human resource','onboard','candidate','resume','applicant'],
-   title:'Hiring & HR Automation',
-   body:`From resume screening to onboarding checklists, HR is packed with automatable tasks. We'd identify where your team loses the most time and build AI tools to filter candidates, draft communications, schedule interviews, and standardize onboarding — without removing human judgment for key decisions.`,
+   title:'Hiring & Onboarding Automation',
+   body:`Small businesses often lose great candidates to slower processes. We'd build AI tools to screen resumes, draft communications, schedule interviews, and standardize onboarding — so you can move faster than competitors without needing a full HR team.`,
    tags:['AI Strategy','Custom AI Development']},
   {kw:['schedule','scheduling','appointment','calendar','booking','meeting'],
    title:'Scheduling Automation',
