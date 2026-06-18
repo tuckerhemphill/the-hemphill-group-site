@@ -105,7 +105,7 @@
       display:flex;flex-direction:column;align-items:center;justify-content:center;
       text-align:center;padding:130px 48px 80px;overflow:hidden;
     }
-    .scroll-hint{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0;animation:fadeInHint 1s ease 1.4s forwards}
+    .scroll-hint{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0;animation:fadeInHint 1s ease 1.4s forwards;z-index:2;cursor:pointer}
     .scroll-hint span{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
     .scroll-hint svg{animation:bob 2.2s ease-in-out infinite}
     @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
@@ -570,7 +570,7 @@
       </div>
     </div>
   </div>
-  <a href="#services" class="scroll-hint" aria-label="Scroll down">
+  <a href="#" class="scroll-hint" aria-label="Scroll down" onclick="event.preventDefault();window.scrollBy({top:window.innerHeight*.25,behavior:'smooth'})">
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--dim)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
   </a>
 </section>
