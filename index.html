@@ -278,7 +278,10 @@
     /* ── SERVICES ── */
     .services{background:var(--bg)}
     .svc-hd{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:64px}
-    .svc-p{font-size:15px;color:var(--mut);line-height:1.8;max-width:380px}
+    .svc-p{font-size:15px;color:var(--mut);line-height:1.8;max-width:380px;margin-bottom:20px}
+    .svc-trust{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+    .svc-trust-tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--mut);border:1px solid var(--bdr);border-radius:100px;padding:5px 14px;background:#fff}
+    .svc-trust-dot{width:5px;height:5px;border-radius:50%;background:var(--blue);flex-shrink:0}
 
     .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
     .bc{
@@ -345,7 +348,7 @@
     .wp p{font-size:13px;color:var(--mut);line-height:1.75}
 
     /* ── PRICING ── */
-    .pricing{background:var(--bg2);border-top:1px solid var(--bdr)}
+    .pricing{background:var(--bg);border-top:1px solid var(--bdr)}
     .price-hd{text-align:center;max-width:680px;margin:0 auto}
     .price-hd .sh{margin-bottom:14px}
     .price-subhead{font-size:16px;color:var(--mut);line-height:1.7;margin-bottom:0}
@@ -593,7 +596,6 @@
   <div class="nav-pill">
     <a href="#services">Services</a>
     <a href="#process">Our Method</a>
-    <a href="#why">Why The Hemphill Group</a>
     <a href="#pricing">Pricing</a>
     <a href="#contact">Contact</a>
   </div>
@@ -607,7 +609,6 @@
 <div class="nav-mob" id="navMob">
   <a href="#services" class="mob-link">Services</a>
   <a href="#process" class="mob-link">Our Method</a>
-  <a href="#why" class="mob-link">Why The Hemphill Group</a>
   <a href="#pricing" class="mob-link">Pricing</a>
   <a href="https://cal.com/the-hemphill-group/15min" target="_blank" rel="noopener" class="mob-link mob-cta">Get Started →</a>
 </div>
@@ -665,9 +666,18 @@
   <div class="svc-hd">
     <div>
       <div class="eye r">Services</div>
-      <h2 class="sh r d1">Everything you need<br>to <em>grow with AI</em></h2>
+      <h2 class="sh r d1">Not a vendor.<br><em>A partner.</em></h2>
     </div>
-    <p class="svc-p r d2">From your first strategy session to a hand-built custom tool — we cover the full journey, sized to your budget and pace.</p>
+    <div class="r d2">
+      <p class="svc-p">Most AI firms sell you a product or a generic audit. We work like a trusted advisor — learning your business deeply, recommending honestly, and building custom when the market falls short.</p>
+      <div class="svc-trust">
+        <span class="svc-trust-tag"><span class="svc-trust-dot"></span>SMB-native</span>
+        <span class="svc-trust-tag"><span class="svc-trust-dot"></span>Vendor-agnostic</span>
+        <span class="svc-trust-tag"><span class="svc-trust-dot"></span>Month-to-month</span>
+        <span class="svc-trust-tag"><span class="svc-trust-dot"></span>Outcomes-focused</span>
+      </div>
+      <a href="https://cal.com/the-hemphill-group/15min" target="_blank" rel="noopener" class="btn-g">Work With Us →</a>
+    </div>
   </div>
   <div class="bento">
     <div class="bc ba r">
@@ -734,36 +744,6 @@
       <div class="ps-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="ps-nm">Embed &amp; Grow</div>
       <p class="ps-ds">We train your team, stay through deployment, and scale what works. You're never left with a powerful tool that nobody uses.</p>
-    </div>
-  </div>
-</section>
-
-<!-- WHY -->
-<section class="why" id="why">
-  <div class="why-grid">
-    <div class="why-l">
-      <div class="eye r">Why The Hemphill Group</div>
-      <h2 class="sh r d1">Not a vendor.<br><em>A partner.</em></h2>
-      <p class="r d2">Most AI firms sell you a product or a generic audit. We work like a trusted advisor — learning your business deeply, recommending honestly, and building with precision when the market comes up short.</p>
-      <a href="https://cal.com/the-hemphill-group/15min" target="_blank" rel="noopener" class="btn-g r d3">Work With Us →</a>
-    </div>
-    <div class="why-pts">
-      <div class="wp r">
-        <div class="wp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-        <div><h4>SMB-Native Expertise</h4><p>We understand you don't have an enterprise budget or 12-month runway. Every engagement is sized to your actual pace and constraints.</p></div>
-      </div>
-      <div class="wp r d1">
-        <div class="wp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-        <div><h4>Hand-Crafted When It Matters</h4><p>If the right tool doesn't exist, we build it — precise, purpose-built, without unnecessary complexity or vendor lock-in.</p></div>
-      </div>
-      <div class="wp r d2">
-        <div class="wp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div><h4>Vendor-Agnostic Advice</h4><p>No commissions, no referral fees. Our recommendations are based solely on what's right for your situation.</p></div>
-      </div>
-      <div class="wp r d3">
-        <div class="wp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-        <div><h4>Outcomes, Not Outputs</h4><p>We measure success by what changes in your business — efficiency gained, hours saved, revenue unlocked — not checkboxes on a project plan.</p></div>
-      </div>
     </div>
   </div>
 </section>
